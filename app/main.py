@@ -109,8 +109,8 @@ piadas = [
 
 @app.get("/")
 def puxarIndex():
-    return FileResponse("templates/index.html")
+    return FileResponse("app/templates/index.html")
 
-def sorteio(piadas):
-    piada = random.choice(piadas)
-    return piadas
+@app.get("/api/sortear")
+def sortear():
+    return {"frase": random.choice(piadas)}
